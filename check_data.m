@@ -1,16 +1,20 @@
 Dir='C:/Users/simon/Desktop/Dataset';
 fil='*.edf';
 fs=250; %frequenza di campionamento
+%lf=1;
+%hf=40;
 
-for type=1:2
-    switch type
+for count=1:3
+    switch count
         case 1
-            type_name='GNSZ';
+            type='GNSZ';
         case 2 
-            type_name='FNSZ';
+            type='FNSZ';
+        case 3
+            type='CTRL';
     end
-    inDir=strcat(Dir,type_name,'/');
-    outDir=strcat(Dir,type_name,'mat/');
+    inDir=strcat(Dir,type,'/');
+    outDir=strcat(Dir,type,'mat/');
     cases=dir(fullfile(inDir,fil));
     
     for i=1:length(cases)
@@ -24,8 +28,9 @@ for type=1:2
         else
             EEG = pop_select( EEG,'channel',{'EEG FP1-REF' 'EEG FP2-REF' 'EEG F3-REF' 'EEG F4-REF' 'EEG C3-REF' 'EEG C4-REF' 'EEG P3-REF' 'EEG P4-REF' 'EEG O1-REF' 'EEG O2-REF' 'EEG F7-REF' 'EEG F8-REF' 'EEG T3-REF' 'EEG T4-REF' 'EEG T5-REF' 'EEG T6-REF' 'EEG FZ-REF' 'EEG CZ-REF' 'EEG PZ-REF'});
         end
-    
         my_data=EEG.data;
+        %my_data=eegfilt(EEG.data(:,:),fs,lf,hf,0,[],0,'fir1',0); 
+        %my_data=eegfilt(EEG.data, fs, 1, 40);
         save(filename,'my_data');
     end
 end

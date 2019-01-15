@@ -10,33 +10,28 @@
 
 %Le matrici sono 6*19*5 (epoche*canali*bande)
 
-inDirG='\Users\simon\Desktop\G30PSD5s\';
-inDirF='\Users\simon\Desktop\G30PSD5s\';
-outDirG='\Users\simon\Desktop\G30PSD5s';
-outDirF='\Users\simon\Desktop\F30PSD5s';
 fil='*.mat'; 
-
 n_ch=19;
-n_ep=6;
+n_ep=2;
+n_bands=5;
 
-for c=1:2
+for c=1:3
     switch c
         case 1
-            inDir=inDirF;
-            outDir=outDirF;
-            tot_name='F';
-            cases=dir(fullfile(inDirF,fil));
+            type='F';
         case 2
-            inDir=inDirG;
-            outDir=outDirG;
-            tot_name='G';
-            cases=dir(fullfile(inDirG,fil));
+            type='G';
+        case 3
+            type='C';
     end
     
+    inDir=strcat('\Users\simon\Desktop\',type,'30PSD15s\');
+    outDir=strcat('\Users\simon\Desktop\',type,'30PSD15s');
+    cases=dir(fullfile(inDir,fil));
     L=length(cases);
-    PSDcmtot=zeros(6,5);
-    PSDtmtot=zeros(19,5);
-    PSDmtot=zeros(1,5);
+    PSDcmtot=zeros(n_ep,n_bands);
+    PSDtmtot=zeros(n_ch,n_bands);
+    PSDmtot=zeros(1,n_bands);
     for i=1:L  %for each subject
         load(strcat(inDir,cases(i).name));
         PSDcm=squeeze(sum(psd,2))/n_ch;   %PSD media tra i canali
@@ -57,10 +52,10 @@ for c=1:2
     PSDcmtot=PSDcmtot/L;
     PSDtmtot=PSDtmtot/L;
     PSDmtot=PSDmtot/L;
-    filename_tot=strcat(outDir,'_tot');
-    save(strcat(filename_tot,'_PSDcmtot\'),'PSDcmtot');
-    save(strcat(filename_tot,'_PSDtmtot\'),'PSDtmtot');
-    save(strcat(filename_tot,'_PSDmtot\'),'PSDmtot');
+    filename_tot=strcat(outDir,'_tot\');
+    save(strcat(filename_tot,type,'_PSDcmtot'),'PSDcmtot');
+    save(strcat(filename_tot,type,'_PSDtmtot'),'PSDtmtot');
+    save(strcat(filename_tot,type,'_PSDmtot'),'PSDmtot');
 end
         
         
