@@ -1,22 +1,26 @@
 # Tesi
 Spiegazione di script e funzioni e ordine:
 
-Check_data: script utilizzato per l'estrazione dei dati dal database e filtrare i segnali con un passabanda tra 1 e 40 Hz
-  per delimitare la banda interessata (il filtraggio viene eseguito nel primo script per agevolare il successivo controllo
-  visivo).
+Check_data: estrae dei dati dal database.
   
-pick: funzione utilizzata per estrarre i soli "t" secondi di segnale (30, 60, 100 o 120) antecedenti alla prima crisi
-  epilettica, sfruttando le tabelle presentanti per ogni tracciato il rispettivo tempo di inizio della crisi.
-  
-quality_check: script utilizzato per effettuare un controllo visivo sui segnali e, attraverso due tabelle da questo create
-  (FNSZ30_QC e GNSZ30_QC), risalire ai tracciati non utilizzabili per effettuare la successiva scrematura.
-	
-bands_filter: script utilizzato per filtrare passabanda i segnali e ottenere i singoli ritmi (non più utilizzato).
+pick30: estrae i soli 30 secondi di segnale antecedenti alla prima crisi epilettica, sfruttando le tabelle presentanti per ogni tracciato il rispettivo tempo di inizio della crisi.
 
-psd5s: script utilizzato per ottenere la psd ogni 5 secondi di ogni tracciato (per un totale di 6 valori per ogni ritmo 
-	per ogni canale).
+Quality_Check30: filtra i segnali con un passabanda tra 1 e 40 Hz per delimitare la banda interessata ed effettuare un controllo visivo sui segnali, crea tre tabelle (FNSZ30_QC, GNSZ30_QC e CTRL30_QC) per risalire ai tracciati non utilizzabili ed effettuare la successiva scrematura.
 	
-PSDmean: script utilizzato per fare la media globale, temporale e spaziale dell'output di psd5s.
+
+psd15s: fornisce la psd ogni 15 secondi di ogni tracciato (per un totale di 2 valori per ogni ritmo per ogni canale).
+	
+PSDmean: esegue la media globale, temporale e spaziale dell'output di psd15s.
 
 vectorize: funzione utilizzata per manipolare le matrici per renderle più facilmente utilizzabili per l'analisi statistica
 	(jamovi) e la classificazione (neuropredict).
+	
+connectivity30: fornisce le misure di connettività tra i canali per ogni banda di interesse, attraverso le misure PLI e PLV.
+
+phase_lag_index: fornisce la misura PLI.
+
+phase_locking_value: fornisce la misura PLV.
+
+Asymmetry: valuta la differenza di connettività tra parte sinistra e destra del cervello e fornisce il P value relativo alla statistica sull'asimmetria.
+
+Zone_connectivity: valuta la differenza di connettività tra le aree cerebrali (temporale, frontale, centrale, parietale-occipitale) e fornisce il P value su tali valori di connettività.
