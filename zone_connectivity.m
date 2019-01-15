@@ -131,24 +131,24 @@ for count=1:2
     Ppo_fg=Ppo_fc;
     Ppo_gc=Ppo_fc;
     for k=1:size(frontal_F,1)     
-        [Pf_fc(k,1),Hf_fc,STATSf_fc]=ranksum(frontal_F(k,:),frontal_C(k,:));
-        [Pf_fg(k,1),Hf_fg,STATSf_fg]=ranksum(frontal_F(k,:),frontal_G(k,:));
-        [Pf_gc(k,1),Hf_gc,STATSf_gc]=ranksum(frontal_G(k,:),frontal_C(k,:));
+        Pf_fc(k,1)=ranksum(frontal_F(k,:),frontal_C(k,:));
+        Pf_fg(k,1)=ranksum(frontal_F(k,:),frontal_G(k,:));
+        Pf_gc(k,1)=ranksum(frontal_G(k,:),frontal_C(k,:));
     end
     for k=1:size(central_F,1)     
-        [Pc_fc(k,1),Hc_fc,STATSc_fc]=ranksum(central_F(k,:),central_C(k,:));
-        [Pc_fg(k,1),Hc_fg,STATSc_fg]=ranksum(central_F(k,:),central_G(k,:));
-        [Pc_gc(k,1),Hc_gc,STATSc_gc]=ranksum(central_G(k,:),central_C(k,:));
+        Pc_fc(k,1)=ranksum(central_F(k,:),central_C(k,:));
+        Pc_fg(k,1)=ranksum(central_F(k,:),central_G(k,:));
+        Pc_gc(k,1)=ranksum(central_G(k,:),central_C(k,:));
     end
     for k=1:size(temporal_F,1)     
-        [Pt_fc(k,1),Ht_fc,STATSt_fc]=ranksum(temporal_F(k,:),temporal_C(k,:));
-        [Pt_fg(k,1),Ht_fg,STATSt_fg]=ranksum(temporal_F(k,:),temporal_G(k,:));
-        [Pt_gc(k,1),Ht_gc,STATSt_gc]=ranksum(temporal_G(k,:),temporal_C(k,:));
+        Pt_fc(k,1)=ranksum(temporal_F(k,:),temporal_C(k,:));
+        Pt_fg(k,1)=ranksum(temporal_F(k,:),temporal_G(k,:));
+        Pt_gc(k,1)=ranksum(temporal_G(k,:),temporal_C(k,:));
     end
     for k=1:size(par_occ_F,1)    
-        [Ppo_fc(k,1),Hpo_fc,STATSpo_fc]=ranksum(par_occ_F(k,:),par_occ_C(k,:));
-        [Ppo_fg(k,1),Hpo_fg,STATSpo_fg]=ranksum(par_occ_F(k,:),par_occ_G(k,:));
-        [Ppo_gc(k,1),Hpo_gc,STATSpo_gc]=ranksum(par_occ_G(k,:),par_occ_C(k,:));
+        Ppo_fc(k,1)=ranksum(par_occ_F(k,:),par_occ_C(k,:));
+        Ppo_fg(k,1)=ranksum(par_occ_F(k,:),par_occ_G(k,:));
+        Ppo_gc(k,1)=ranksum(par_occ_G(k,:),par_occ_C(k,:));
     end
 
     P=[Pf_fc,Pf_fg,Pf_gc,Pc_fc,Pc_fg,Pc_gc,Pt_fc,Pt_fg,Pt_gc,Ppo_fc,Ppo_fg,Ppo_gc];

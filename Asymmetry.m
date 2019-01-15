@@ -78,9 +78,9 @@ for count=1:2
     Pfg=Pfc;
     Pgc=Pfc;
     for k=1:size(asy_G,1)     
-        [Pfc(k,1),Hfc,STATSfc]=ranksum(asy_F(k,:),asy_C(k,:));
-        [Pfg(k,1),Hfg,STATSfg]=ranksum(asy_F(k,:),asy_G(k,:));
-        [Pgc(k,1),Hgc,STATSgc]=ranksum(asy_G(k,:),asy_C(k,:)); 
+        Pfc(k,1)=ranksum(asy_F(k,:),asy_C(k,:));
+        Pfg(k,1)=ranksum(asy_F(k,:),asy_G(k,:));
+        Pgc(k,1)=ranksum(asy_G(k,:),asy_C(k,:)); 
     end
 
     P=[[' '; bands],[types; string([Pfc, Pfg, Pgc])]];
