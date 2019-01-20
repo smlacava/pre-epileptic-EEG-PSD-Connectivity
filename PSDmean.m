@@ -8,7 +8,7 @@
 
 %keep all
 
-%Le matrici sono 6*19*5 (epoche*canali*bande)
+%Le matrici sono 2*19*5 (epoche*canali*bande)
 
 fil='*.mat'; 
 n_ch=19;
