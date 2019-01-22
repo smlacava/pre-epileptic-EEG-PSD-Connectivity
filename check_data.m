@@ -29,8 +29,6 @@ for count=1:3
             EEG = pop_select( EEG,'channel',{'EEG FP1-REF' 'EEG FP2-REF' 'EEG F3-REF' 'EEG F4-REF' 'EEG C3-REF' 'EEG C4-REF' 'EEG P3-REF' 'EEG P4-REF' 'EEG O1-REF' 'EEG O2-REF' 'EEG F7-REF' 'EEG F8-REF' 'EEG T3-REF' 'EEG T4-REF' 'EEG T5-REF' 'EEG T6-REF' 'EEG FZ-REF' 'EEG CZ-REF' 'EEG PZ-REF'});
         end
         my_data=EEG.data;
-        %my_data=eegfilt(EEG.data(:,:),fs,lf,hf,0,[],0,'fir1',0); 
-        %my_data=eegfilt(EEG.data, fs, 1, 40);
         save(filename,'my_data');
     end
 end
