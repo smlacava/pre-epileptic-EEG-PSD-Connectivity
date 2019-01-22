@@ -25,7 +25,7 @@ for type=1:3
     cases=dir(fullfile(inDir,fil));
 
     for i=1:length(cases)
-        sup=load(strcat(inDir,cases(i).name));
+        EEG=load(strcat(inDir,cases(i).name));
         filename=strcat(outDir,cases(i).name,'_30.mat');
         for j=1:max(size(time_table))
             x=time_table(j,1);
@@ -33,7 +33,7 @@ for type=1:3
             if x_time>=30
                 if strncmpi(cases(i).name,x,18)==1
                     tmax=floor(x_time*fs);
-                    sup=sup.my_data(:,tmax-delta:tmax-1);
+                    sup=EEG.my_data(:,tmax-delta:tmax-1);
                     save(filename,'sup')
                 end
             end
