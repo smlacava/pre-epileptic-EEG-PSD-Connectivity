@@ -24,7 +24,7 @@ for count=1:3
         for k = 1:n_epochs
         
             for j=1:size(EEG.sup,1)
-                data=squeeze(EEG.sup(j,fs*k+1:fs*k+dt));            
+                data=squeeze(EEG.sup(j,(k-1)*dt+1:k*dt));            
                 [pxx,w]=pwelch(data,[],0,[],fs);          
                 deltaPower=sum(pxx(2:5));         %1-4 hz      
                 thetaPower=sum(pxx(5:9));         %4-8 hz          
