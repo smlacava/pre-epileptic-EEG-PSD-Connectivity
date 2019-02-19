@@ -5,7 +5,7 @@ Tutte le analisi sono state eseguite sui singoli soggetti e sui singoli ritmi ba
 
 Check_data: estrae i segnali EEG dal database.
   
-pick30: estrae i soli 30 secondi di segnale antecedenti alla prima crisi epilettica, sfruttando delle tabelle presentanti per ogni tracciato il rispettivo tempo di inizio della crisi.
+pick30: estrae i soli 30 secondi di segnale antecedenti alla prima crisi epilettica, sfruttando delle tabelle presentanti per ogni tracciato il rispettivo tempo di inizio della crisi (FNSZtime è un esempio di tabella di input).
 
 Quality_Check30: filtra i segnali con un passabanda tra 1 e 40 Hz per delimitare la banda interessata ed effettuare un controllo visivo sui segnali, crea tre tabelle (FNSZ30_QC, GNSZ30_QC e CTRL30_QC) per risalire ai tracciati non utilizzabili ed effettuare la successiva scrematura.
 	
