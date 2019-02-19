@@ -1,5 +1,3 @@
-Analisi spettrale, di connettività e classificazione del segnale EEG nelle crisi focali e generalizzate
-
 Analisi dei 30 secondi di segnale EEG, suddivisi in 2 epoche da 15 secondi, antecedenti alle crisi epilettiche focali e generalizzate.
 Tutte le analisi sono state eseguite sui singoli soggetti e sui singoli ritmi basali nella banda 1-40 Hz.
 
