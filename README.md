@@ -1,14 +1,15 @@
-# Tesi
-Spiegazione di script e funzioni e ordine:
+Analisi spettrale, di connettività e classificazione del segnale EEG nelle crisi focali e generalizzate
 
-Check_data: estrae dei dati dal database.
+Analisi dei 30 secondi di segnale EEG, suddivisi in 2 epoche da 15 secondi, antecedenti alle crisi epilettiche focali e generalizzate.
+Tutte le analisi sono state eseguite sui singoli soggetti e sui singoli ritmi basali nella banda 1-40 Hz.
+
+Check_data: estrae i segnali EEG dal database.
   
-pick30: estrae i soli 30 secondi di segnale antecedenti alla prima crisi epilettica, sfruttando le tabelle presentanti per ogni tracciato il rispettivo tempo di inizio della crisi.
+pick30: estrae i soli 30 secondi di segnale antecedenti alla prima crisi epilettica, sfruttando delle tabelle presentanti per ogni tracciato il rispettivo tempo di inizio della crisi.
 
 Quality_Check30: filtra i segnali con un passabanda tra 1 e 40 Hz per delimitare la banda interessata ed effettuare un controllo visivo sui segnali, crea tre tabelle (FNSZ30_QC, GNSZ30_QC e CTRL30_QC) per risalire ai tracciati non utilizzabili ed effettuare la successiva scrematura.
 	
-
-psd15s: fornisce la psd ogni 15 secondi di ogni tracciato (per un totale di 2 valori per ogni ritmo per ogni canale).
+psd15s: fornisce la psd per ogni epoca per ogni canale.
 	
 PSDmean: esegue la media globale, temporale e spaziale dell'output di psd15s.
 
